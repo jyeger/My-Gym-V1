@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row">
+      <div class="col-xs-3">
+        <div class="customer-details">
+          <div class="customer-image">
+            
+            <div *ngIf="customer.imagePath!='';else noCustomerImage">
+                <img [src]="customer.imagePath" alt="{{customer.getFullName()}}" 
+                  class="img-responsive img-circle">
+            </div>
+
+            <ng-template #noCustomerImage>
+              <span class="glyphicon glyphicon-user no-customer-image"></span>
+            </ng-template>
+          </div>
+
+          <div class="customer-name">
+            {{customer.getFullName()}}
+          </div>
+
+          <div class="customer-action-buttons">
+            <button type="button" class="btn btn-primary btn-sm" style="width:120px">Edit</button>
+          </div>
+
+          <div style="margin:5px" class="customer-personal-detail">
+            <div><span class="glyphicon glyphicon-adjust"></span> Gender: {{customer.getGender()}}</div>
+            <div><span class="glyphicon glyphicon-gift"></span> Bday: {{customer.dateOfBirth | date:"dd/MM/yyyy"}}</div>
+            <div><span class="glyphicon glyphicon-hourglass"></span> Member Since: {{customer.memberSince | date:"dd/MM/yyyy" }}</div>
+            <div><span class="glyphicon glyphicon-calendar"></span> Age:{{customer.getAge()}}</div>
+            <div><span class="glyphicon glyphicon-phone"></span> Phone: {{customer.phone}}</div>
+            <div><span class="glyphicon glyphicon-map-marker"></span> Address: {{customer.address}}</div>
+            
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-9">
+          <app-training-program-list [trainingPrograms]="customer.trainingProgram"></app-training-program-list>
+      </div>
+	</div>
+</div>

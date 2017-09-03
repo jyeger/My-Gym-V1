@@ -1,0 +1,8 @@
+.form-horizontal .control-label{
+/* text-align:right; */
+text-align:left;
+}
+
+.form-horizontal .form-group{
+    padding-left: 10px;
+}

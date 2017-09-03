@@ -1,0 +1,52 @@
+<div class="row">
+  <div class="xs-col-12">
+        <form class="form-horizontal">
+
+            <div class="form-group">
+              <label for="name" class="col-sm-2 control-label">Name</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="name" placeholder="Exercises name">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="location" class="col-sm-2 control-label">Location</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="location" placeholder="Location">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="category" class="col-sm-2 control-label">Category</label>
+              <div class="col-sm-10">
+                <select>
+                  <option *ngFor="let c of dataService.getExercisesTypeList();let i=index" 
+                  value="{{i}}">{{c}}</option>
+                </select> 
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="imagePath" class="col-sm-2 control-label">Image path</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="imagePath" placeholder="Image path">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="videoPath" class="col-sm-2 control-label">Video path</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="videoPath" placeholder="Video path">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default">Submit</button>
+                <button type="reset" class="btn btn-default">Clear</button>
+              </div>
+            </div>      
+          
+        </form>
+  </div>
+</div>

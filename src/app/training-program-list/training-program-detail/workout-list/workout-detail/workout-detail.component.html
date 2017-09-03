@@ -1,0 +1,42 @@
+<div class="continer">
+  <div class="well well-sm">
+    <div class="row">
+        <div class="col-sm-4 col-md-4">
+            <img [src]='exercise && exercise.imagePath!=""?exercise.imagePath:"assets/fitnessExercisesImages/NoImage.png"' alt="" class="img-rounded img-responsive" />
+        </div>
+        <div class="col-sm-8 col-md-8">
+            <div>
+                <div *ngIf="workout.numberOfSets">Number of sets: {{workout.numberOfSets}}</div>
+                <div *ngIf="workout.weight">Weight: {{workout.weight}}</div>
+                <div *ngIf="workout.speed">Speed: {{workout.speed}}</div>
+                <div *ngIf="workout.level">Level: {{workout.level}}</div>
+                <div *ngIf="workout.time">Time: {{workout.time}}</div>
+                <div *ngIf="workout.comments">Comments: {{workout.comments}}</div>
+                
+                <span *ngIf="exercise && exercise.location!=''">Location: {{exercise.location}}</span>
+                <BR/>
+                <span *ngIf='exercise'>Type: {{dataService.getExercisesTypeListValue(exercise.exercisesType)}}</span>    
+            </div>
+            <button *ngIf="exercise && exercise.videoPath!=''" type="button" class="btn btn-primary"
+            data-toggle="modal" [attr.data-target]="'#videoModal'+ (i+1)">Instructions</button>
+
+            <div id="videoModal{{i+1}}" class="modal fade" role="dialog" *ngIf="exercise && exercise.videoPath!=''">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Watch instructions</h4>
+                        </div>
+                        <div class="modal-body">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

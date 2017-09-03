@@ -1,0 +1,20 @@
+th a 
+{
+    text-decoration: none;
+}
+
+.edit-customer
+{
+    padding-top: 10px; 
+    max-width:800px;
+}
+
+.edit-customer .panel-body
+{
+    margin-right:20px
+}
+
+td a{
+    text-decoration: none;
+    color:black;
+}

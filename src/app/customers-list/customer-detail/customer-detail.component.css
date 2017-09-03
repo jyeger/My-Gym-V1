@@ -1,0 +1,60 @@
+/* Profile sidebar */
+.customer-details {
+    padding-top: 15px;
+    padding-bottom: 5px;
+    background-color: #d9edf7;
+}
+
+.customer-image
+{
+    text-align: center;
+}
+
+.customer-image img {
+  float: none;
+  margin: 0 auto;
+  max-height:100px
+}
+
+.no-customer-image {
+  font-size: 70px;
+}
+
+.customer-name {
+  text-align: center;
+  margin-top: 20px;
+  color: #5a7391;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+
+.customer-action-buttons {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.customer-action-buttons .btn {
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 6px 15px;
+  margin-right: 5px;
+}
+
+.customer-action-buttons .btn:last-child {
+  margin-right: 0px;
+}
+
+.customer-personal-detail
+{ 
+    font-size:10px; 
+    font-weight:500;
+}
+
+.customer-personal-detail-border
+{ 
+    border-bottom:1px #f8f8f8 solid;
+    margin:5px 0  5px 0
+}
+

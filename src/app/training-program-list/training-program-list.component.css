@@ -1,0 +1,15 @@
+.edit-training-program
+{
+    padding-top: 10px; 
+    max-width:800px;
+}
+
+.edit-training-program .panel-body
+{
+    margin-right:20px
+}
+
+a .glyphicon
+{
+    color:black;
+}

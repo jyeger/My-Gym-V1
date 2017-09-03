@@ -1,0 +1,80 @@
+<div class="row">
+  <div class="col-xs-12">
+      <button class="btn btn-success" 
+      data-toggle="collapse" data-target="#editCustomer">Add customer</button>
+      <div id="editCustomer" class="collapse edit-customer">
+        <div class="panel panel-info">
+            <div class="panel-body">
+                <app-customers-item></app-customers-item>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+<BR>
+
+<div class="row">
+  <div class="col-xs-12">
+    <table class="table table-bordered table-condensed table-responsive">
+        <thead>
+          <tr>
+            <th width="7%"></th>
+            <th>
+              <a href="#" (click)="onChangeSort('name')">Name</a> 
+              <span *ngIf="sortField=='name'">
+                <span *ngIf="!isAscSort" class="glyphicon glyphicon-triangle-bottom"></span>
+                <span *ngIf="isAscSort" class="glyphicon glyphicon-triangle-top"></span>
+              </span>
+            </th>
+            <th>
+              <a href="#" (click)="onChangeSort('dob')">Date of birth</a>  
+              <span *ngIf="sortField=='dob'">
+                <span *ngIf="!isAscSort" class="glyphicon glyphicon-triangle-bottom"></span>
+                <span *ngIf="isAscSort" class="glyphicon glyphicon-triangle-top"></span>
+              </span>
+            </th>
+            <th width="10%">
+                Age
+            </th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let customer of customers">
+          <tr>
+            <td>
+              <a href="#" (click)=onChangeCustomer(customer)><span class="glyphicon glyphicon-user"></span></a>
+              <a href="#" (click)="onEditClick(customer)"><span class="glyphicon glyphicon-pencil"></span></a>
+              <a href="#" (click)="onDeleteClick(customer)"><span class="glyphicon glyphicon-trash"></span></a>
+            </td>
+            <td><a href="#" (click)=onChangeCustomer(customer) class="clearfix">{{customer.getFullName()}}</a></td>
+            <td>{{customer.dateOfBirth | date:'dd/MM/yyyy'}}</td>
+            <td>{{customer.getAge()}}</td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12" *ngIf="currentCustomer">
+    <app-customer-detail [customer]="currentCustomer"></app-customer-detail>
+  </div>
+
+</div>
+
+
+<!-- <div class="row" *ngFor="let customer of customers">
+  <div class="col-xs-12">
+        <a href="#" class="list-group-item clearfix">
+          <div class="pull-left">
+            <img [src]="customer.imagePath" alt="" class="img-responsive img-circle" style="max-height:50px">
+            <h4 class="list-group-item-heading">{{customer.getFullName()}}</h4>
+            <p class="list-group-item-text">
+              DoB: {{customer.dateOfBirth | date:'dd/MM/yyyy'}}
+              <BR>
+              Age: {{customer.getAge()}}
+            </p>
+          </div>
+        </a>
+  </div>
+</div> -->

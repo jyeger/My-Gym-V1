@@ -1,0 +1,44 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <button class="btn btn-success" 
+            data-toggle="collapse" data-target="#editTrainingProgram">Add program</button>
+            <div id="editTrainingProgram" class="collapse edit-training-program">
+                <div class="panel panel-info">
+                    <div class="panel-body">
+                    <app-training-program-item></app-training-program-item>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="panel-group" id="programList" *ngFor="let program of trainingPrograms;
+            let i = index">
+                <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#programList" href="#program{{i+1}}">
+                            {{program.getTrainingProgramName()}}
+                            
+                            <span class="pull-right">
+                                <a href="#" (click)="onEditClick(program)"><span class="glyphicon glyphicon-pencil"></span></a>
+                                <a href="#" (click)="onDeleteClick(program)"><span class="glyphicon glyphicon-trash"></span></a>
+                            </span>
+                        </a>
+                    </h4>
+                </div>
+                <div id="program{{i+1}}" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <app-training-program-detail [workouts]="program.workouts"></app-training-program-detail>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div> 
+    </div>        
+</div>

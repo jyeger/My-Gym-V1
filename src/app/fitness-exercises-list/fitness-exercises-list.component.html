@@ -1,0 +1,76 @@
+<div class="row">
+  <div class="col-xs-12">
+      <button class="btn btn-success" 
+      data-toggle="collapse" data-target="#editFitnessExercises">Add Exercise</button>
+      <div id="editFitnessExercises" class="collapse edit-fitness-exercises">
+        <div class="panel panel-info">
+            <div class="panel-body">
+                <app-fitness-exercises-item></app-fitness-exercises-item>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+<BR><BR>
+    
+<div class="row">
+  <div class="col-xs-10">
+    <div id="list">
+      <div class="list-group" 
+      *ngFor="let item of dataService.getFitnessExercisesList();let i = index">
+        <a href="#exercise{{i+1}}" class="list-group-item" style="cursor:pointer" 
+        data-toggle="collapse" data-target="#exercise{{i+1}}" data-parent="#list">
+          {{item.name}} 
+        </a>
+         <div class="panel panel-default collapse" id=exercise{{i+1}}>
+          <div class="panel-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6">
+                        <div class="well well-sm">
+                            <div class="row">
+                                <div class="col-sm-6 col-md-4">
+                                    <img [src]='item.imagePath!=""?item.imagePath:"assets/fitnessExercisesImages/NoImage.png"' alt="" class="img-rounded img-responsive" />
+                                </div>
+                                <div class="col-sm-6 col-md-8">
+                                    <p>
+                                        <span *ngIf='item.location!=""'>Location: {{item.location}}</span>
+                                        <BR>
+                                        <span>Type: {{dataService.getExercisesTypeListValue(item.exercisesType)}}</span>
+                                    </p>
+                                    <button *ngIf='item.videoPath!=""' type="button" class="btn btn-primary"
+                                    data-toggle="modal" [attr.data-target]="'#videoModal'+ (i+1)">Watch</button>
+
+                                    <div id="videoModal{{i+1}}" class="modal fade" role="dialog" *ngIf='item.videoPath!=""'>
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    <h4 class="modal-title">Watch instructions</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0" frameborder="0" allowfullscreen></iframe>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="text-align: right">
+                            <a href="#" (click)="onEditClick(item)"><span class="glyphicon glyphicon-pencil"></span></a>
+                            <a href="#" (click)="onDeleteClick(item)"><span class="glyphicon glyphicon-trash"></span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+        </div> 
+      </div>
+    </div>
+  </div>
+</div>

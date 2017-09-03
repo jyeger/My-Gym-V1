@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-xs-12">
+    
+      <div class="container-fluid">
+          <div class="row">
+              <div class="col-xs-12">
+                  <button class="btn btn-success" 
+                  data-toggle="collapse" data-target="#editWorkout">Add workout</button>
+                  <div id="editWorkout" class="collapse edit-workout">
+                      <div class="panel panel-info">
+                          <div class="panel-body">
+                              <app-workout-item></app-workout-item>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+  <div class="col-xs-10" style="padding-top:20px">   
+    <div *ngFor="let workout of workouts">
+        {{dataService.getExerciseByValue(workout.exerciseId)!=null?
+          dataService.getExerciseByValue(workout.exerciseId).name:workout.exerciseId}}
+
+          <span class="pull-right">
+              <a href="#" (click)="onEditClick(workout)"><span class="glyphicon glyphicon-pencil"></span></a>
+              <a href="#" (click)="onDeleteClick(workout)"><span class="glyphicon glyphicon-trash"></span></a>
+          </span>
+
+          <BR>
+          <app-workout-detail [workout]="workout"></app-workout-detail>
+    </div>
+
+  </div>
+</div>

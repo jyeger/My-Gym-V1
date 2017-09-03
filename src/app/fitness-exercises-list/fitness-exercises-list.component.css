@@ -1,0 +1,15 @@
+.edit-fitness-exercises
+{
+    padding-top: 10px; 
+    max-width:800px;
+}
+
+.edit-fitness-exercises .panel-body
+{
+    margin-right:20px
+}
+
+a .glyphicon
+{
+    color:black;
+}
